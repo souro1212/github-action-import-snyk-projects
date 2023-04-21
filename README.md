@@ -49,7 +49,13 @@ The workflow performs the following steps:
 - Check out the repository's code.
 - Install `Node.js` and its dependencies.
 - Install the `snyk-api-import` package globally.
-- Create import data for Snyk, using the snyk-orgs.json file in the repository's root directory and the GitHub source.
+- Create import data for Snyk, using the `snyk-orgs.json` file in the repository's root directory and the GitHub source.
+ 
+ `snyk-orgs.json` file format:
+  ```json
+  
+  ```
+  
 - Import the data to Snyk, using the `github-import-targets.json` file in the repository's root directory.
 
 ## Conclusion
