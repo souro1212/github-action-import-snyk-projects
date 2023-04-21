@@ -1,0 +1,33 @@
+name: Workflow to import github repos to snyk
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  snyk-import:
+    runs-on: ubuntu-latest
+    env:
+     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+     SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+     SNYK_LOG_PATH: "."
+    steps:
+      - name: Use the secret as an environment variable
+        run: echo $GITHUB_TOKEN $SNYK_TOKEN
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      - name: Install dependencies
+        run: npm install
+      - name: Install snyk-import 
+        run: npm install snyk-api-import@latest -g
+      - name: Create import data for snyk
+        run: DEBUG=*snyk* snyk-api-import import:data --orgsData=${{ github.workspace }}/snyk-orgs.json --source=github
+      - name: Import data to snyk
+        run: DEBUG=*snyk* snyk-api-import import --file=${{ github.workspace }}/github-import-targets.json 
+              
+             
+  
