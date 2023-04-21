@@ -53,7 +53,7 @@ The workflow performs the following steps:
  
  `snyk-orgs.json` file format:
   ```json
-  
+   { "orgData": [ { "name": "<Org-name>", "orgId": "<Org-ID>", "integrations": { "github": "<github-integration-ID>" } } ] }
   ```
   
 - Import the data to Snyk, using the `github-import-targets.json` file in the repository's root directory.
