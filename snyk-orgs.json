@@ -1,0 +1,1 @@
+{ "orgData": [ { "name": "<Org-name>", "orgId": "<Org-ID>", "integrations": { "github": "<github-integration-ID>" } } ] }
