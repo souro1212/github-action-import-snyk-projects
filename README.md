@@ -53,4 +53,4 @@ The workflow performs the following steps:
 - Import the data to Snyk, using the `github-import-targets.json` file in the repository's root directory.
 
 ## Conclusion
-With this workflow, you can easily import your GitHub repositories to Snyk and start monitoring them for vulnerabilities. For more information on how to use Snyk, please refer to the official documentation.
+With this workflow, you can easily import your GitHub repositories to Snyk and start monitoring them for vulnerabilities. For more information on how to use Snyk, please refer to the [official documentation](https://docs.snyk.io/).
